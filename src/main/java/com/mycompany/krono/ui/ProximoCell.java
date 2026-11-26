@@ -9,28 +9,31 @@ import javafx.scene.control.Label;
 import javafx.scene.control.ListCell;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Priority;
-import javafx.scene.shape.Circle;
+import javafx.scene.layout.Region;
+import javafx.scene.layout.StackPane;
 
-/** Fila compacta de "Próximos 15 días": fecha, punto de color y título. Clic = ir a ese día. */
+/**
+ * Fila compacta de "Próximos 15 días": fecha, marca de categoría (punto + ícono) y título.
+ * Clic = ir a ese día. Los prioritarios se distinguen por su ícono de estrella.
+ */
 public class ProximoCell extends ListCell<Ocurrencia> {
 
     private static final PseudoClass COMPLETADA = PseudoClass.getPseudoClass("done");
 
     private final Label fecha = new Label();
-    private final Circle punto = new Circle(4);
+    private final StackPane marcaCaja = new StackPane();
     private final Label titulo = new Label();
-    private final Label prioridad = new Label("★");
     private final HBox raiz;
 
     public ProximoCell(Consumer<Ocurrencia> alElegir) {
         fecha.getStyleClass().add("upcoming-date");
         titulo.getStyleClass().add("upcoming-title");
         titulo.setMinWidth(0);
-        HBox.setHgrow(titulo, Priority.ALWAYS);
         titulo.setMaxWidth(Double.MAX_VALUE);
-        prioridad.getStyleClass().add("upcoming-star");
+        HBox.setHgrow(titulo, Priority.ALWAYS);
+        marcaCaja.setMinWidth(Region.USE_PREF_SIZE);
 
-        raiz = new HBox(10, fecha, punto, titulo, prioridad);
+        raiz = new HBox(10, fecha, marcaCaja, titulo);
         raiz.setAlignment(Pos.CENTER_LEFT);
         raiz.getStyleClass().add("upcoming-item");
         raiz.setOnMouseClicked(e -> {
@@ -51,10 +54,8 @@ public class ProximoCell extends ListCell<Ocurrencia> {
             return;
         }
         fecha.setText(Fechas.corto(o.fecha()));
-        punto.getStyleClass().setAll("dot", o.categoria().claseCss());
+        marcaCaja.getChildren().setAll(MarcaCategoria.de(o, 4, 13));
         titulo.setText(o.etiqueta() == null ? o.titulo() : "[" + o.etiqueta() + "] " + o.titulo());
-        prioridad.setVisible(o.prioritaria());
-        prioridad.setManaged(o.prioritaria());
         raiz.pseudoClassStateChanged(COMPLETADA, o.completada());
         setGraphic(raiz);
     }
