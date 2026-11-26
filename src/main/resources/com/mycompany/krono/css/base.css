@@ -1,0 +1,996 @@
+/* =====================================================================
+   Krono · Estilos base
+   Componentes de la interfaz. Los colores -k-* vienen del tema activo
+   (light-theme.css / dark-theme.css), que se carga después de este archivo.
+   ===================================================================== */
+
+.root {
+    /* Colores por categoría: iguales en ambos temas */
+    -k-tarea:  #FF5A5F;   /* Asuntos importantes / prioritarios */
+    -k-junta:  #0284C7;   /* Juntas / reuniones */
+    -k-cumple: #7C4DFF;   /* Cumpleaños */
+    -k-corte:  #D97706;   /* Cortes de tarjeta */
+    -k-pago:   #00C853;   /* Fecha límite de pago */
+    -k-gris:   #6B7280;   /* Contactos generales */
+
+    -fx-font-family: "Segoe UI";
+    -fx-font-size: 13px;
+    -fx-accent: -k-accent;
+    -fx-focus-color: -k-accent;
+    -fx-faint-focus-color: transparent;
+}
+
+.label {
+    -fx-text-fill: -k-text;
+}
+
+/* ---------------------------------------------------------------- iconos */
+
+.icon {
+    -fx-fill: -k-text-2;
+}
+
+/* ---------------------------------------------------------------- botones */
+
+.button,
+.toggle-button {
+    -fx-background-color: -k-card;
+    -fx-background-radius: 6;
+    -fx-text-fill: -k-text;
+    -fx-padding: 6 14 6 14;
+    -fx-cursor: hand;
+}
+
+.button:hover,
+.toggle-button:hover {
+    -fx-background-color: -k-hover;
+}
+
+.button:focused,
+.toggle-button:focused {
+    -fx-background-color: -k-accent, -k-card;
+    -fx-background-insets: 0, 2;
+}
+
+.accent-button {
+    -fx-background-color: -k-accent;
+    -fx-text-fill: -k-on-accent;
+    -fx-font-weight: bold;
+}
+
+.accent-button:hover {
+    -fx-background-color: -k-accent-hover;
+}
+
+.accent-button:focused {
+    -fx-background-color: -k-text, -k-accent;
+    -fx-background-insets: 0, 2;
+}
+
+.accent-button .icon {
+    -fx-fill: -k-on-accent;
+}
+
+.icon-button,
+.nav-arrow {
+    -fx-background-color: transparent;
+    -fx-background-radius: 8;
+    -fx-padding: 7;
+}
+
+.icon-button:hover,
+.nav-arrow:hover {
+    -fx-background-color: -k-hover;
+}
+
+.icon-button:hover .icon,
+.nav-arrow:hover .icon {
+    -fx-fill: -k-text;
+}
+
+.icon-button:focused,
+.nav-arrow:focused {
+    -fx-background-color: -k-accent, -k-bg;
+    -fx-background-insets: 0, 2;
+}
+
+/* --------------------------------------------------------------- combos */
+
+.combo-box {
+    -fx-background-color: -k-card;
+    -fx-background-radius: 6;
+    -fx-padding: 1 4 1 4;
+    -fx-cursor: hand;
+}
+
+.combo-box:hover {
+    -fx-background-color: -k-hover;
+}
+
+.combo-box:focused {
+    -fx-background-color: -k-accent, -k-card;
+    -fx-background-insets: 0, 2;
+}
+
+.combo-box .list-cell {
+    -fx-text-fill: -k-text;
+    -fx-background-color: transparent;
+}
+
+.combo-box .arrow {
+    -fx-background-color: -k-text-2;
+}
+
+.combo-box .arrow-button {
+    -fx-background-color: transparent;
+}
+
+.combo-box-popup .list-view {
+    -fx-background-color: -k-border, -k-bg;
+    -fx-background-insets: 0, 1;
+    -fx-background-radius: 8;
+    -fx-padding: 4;
+    -fx-effect: dropshadow(gaussian, -k-shadow, 12, 0, 0, 4);
+}
+
+.combo-box-popup .list-view .list-cell {
+    -fx-background-color: transparent;
+    -fx-background-radius: 6;
+    -fx-text-fill: -k-text;
+    -fx-padding: 5 10 5 10;
+}
+
+.combo-box-popup .list-view .list-cell:hover {
+    -fx-background-color: -k-hover;
+}
+
+.combo-box-popup .list-view .list-cell:selected {
+    -fx-background-color: -k-selected;
+    -fx-text-fill: -k-text;
+}
+
+/* ------------------------------------------------------------ scrollbars */
+
+.scroll-bar {
+    -fx-background-color: transparent;
+}
+
+.scroll-bar:vertical {
+    -fx-pref-width: 10;
+}
+
+.scroll-bar:horizontal {
+    -fx-pref-height: 10;
+}
+
+.scroll-bar .thumb {
+    -fx-background-color: -k-border;
+    -fx-background-radius: 5;
+    -fx-background-insets: 2;
+}
+
+.scroll-bar .thumb:hover {
+    -fx-background-color: -k-text-3;
+}
+
+.scroll-bar .track,
+.scroll-bar .track-background {
+    -fx-background-color: transparent;
+}
+
+.scroll-bar .increment-button,
+.scroll-bar .decrement-button {
+    -fx-padding: 0;
+    -fx-background-color: transparent;
+}
+
+.scroll-bar .increment-arrow,
+.scroll-bar .decrement-arrow {
+    -fx-shape: null;
+    -fx-padding: 0;
+}
+
+.separator .line {
+    -fx-border-color: -k-border;
+    -fx-border-width: 1 0 0 0;
+}
+
+/* =================================================== ventana principal */
+
+.app-root {
+    -fx-background-color: -k-bg;
+}
+
+.top-bar {
+    -fx-background-color: -k-bg;
+    -fx-padding: 10 20 10 20;
+    -fx-border-color: -k-border;
+    -fx-border-width: 0 0 1 0;
+}
+
+.brand {
+    -fx-font-size: 18px;
+    -fx-font-weight: bold;
+}
+
+.brand-mark {
+    -fx-background-color: -k-accent;
+    -fx-background-radius: 7;
+    -fx-min-width: 28;
+    -fx-min-height: 28;
+    -fx-max-width: 28;
+    -fx-max-height: 28;
+}
+
+.brand-mark-text {
+    -fx-text-fill: -k-on-accent;
+    -fx-font-size: 15px;
+    -fx-font-weight: bold;
+}
+
+.nav-segment {
+    -fx-background-color: -k-card;
+    -fx-background-radius: 9;
+    -fx-padding: 3;
+}
+
+.nav-button {
+    -fx-background-color: transparent;
+    -fx-background-radius: 7;
+    -fx-text-fill: -k-text-2;
+    -fx-padding: 6 18 6 18;
+    -fx-font-weight: 600;
+}
+
+.nav-button:hover {
+    -fx-background-color: transparent;
+    -fx-text-fill: -k-text;
+}
+
+.nav-button:selected {
+    -fx-background-color: -k-bg;
+    -fx-text-fill: -k-text;
+    -fx-effect: dropshadow(gaussian, -k-shadow, 6, 0, 0, 1);
+}
+
+.nav-button:focused {
+    -fx-background-color: -k-accent, -k-card;
+    -fx-background-insets: 0, 2;
+}
+
+.nav-button:selected:focused {
+    -fx-background-color: -k-accent, -k-bg;
+}
+
+.placeholder-view {
+    -fx-alignment: center;
+    -fx-spacing: 10;
+    -fx-padding: 40;
+}
+
+.placeholder-title {
+    -fx-font-size: 20px;
+    -fx-font-weight: bold;
+}
+
+.placeholder-text {
+    -fx-text-fill: -k-text-2;
+}
+
+/* =========================================================== calendario */
+
+.card {
+    -fx-background-color: -k-card;
+    -fx-background-radius: 12;
+    -fx-padding: 16;
+}
+
+/* Encabezado de resumen */
+
+.summary-day {
+    -fx-background-color: -k-accent;
+    -fx-background-radius: 12;
+    -fx-min-width: 88;
+    -fx-min-height: 88;
+    -fx-max-width: 88;
+    -fx-max-height: 88;
+}
+
+.summary-day .label {
+    -fx-text-fill: -k-on-accent;
+}
+
+.summary-weekday {
+    -fx-font-size: 14px;
+}
+
+.summary-daynum {
+    -fx-font-size: 36px;
+    -fx-font-weight: bold;
+}
+
+.summary-month {
+    -fx-font-size: 22px;
+    -fx-font-weight: bold;
+}
+
+.summary-week {
+    -fx-text-fill: -k-text-2;
+}
+
+.summary-text {
+    -fx-font-weight: 600;
+}
+
+/* Cuadrícula */
+
+.calendar-card {
+    -fx-padding: 12 12 14 12;
+}
+
+.calendar-grid {
+    -fx-hgap: 4;
+    -fx-vgap: 4;
+}
+
+.weekday-header {
+    -fx-text-fill: -k-text-2;
+    -fx-font-size: 12px;
+    -fx-font-weight: bold;
+}
+
+/* El borde siempre mide 2px (transparente) para que marcar "hoy" no mueva nada */
+.day-cell {
+    -fx-background-color: transparent;
+    -fx-background-radius: 10;
+    -fx-border-color: transparent;
+    -fx-border-width: 2;
+    -fx-border-radius: 10;
+    -fx-padding: 4;
+    -fx-cursor: hand;
+}
+
+.day-cell:hover {
+    -fx-background-color: -k-hover;
+}
+
+.day-cell:selected {
+    -fx-background-color: -k-selected;
+}
+
+.day-cell:today {
+    -fx-border-color: -k-accent;
+}
+
+.day-number {
+    -fx-font-size: 15px;
+    -fx-font-weight: bold;
+}
+
+.day-cell:today .day-number {
+    -fx-text-fill: -k-accent-fg;
+}
+
+.day-cell:out-month .day-number {
+    -fx-text-fill: -k-text-3;
+    -fx-font-weight: normal;
+}
+
+.day-cell:out-month .dot {
+    -fx-opacity: 0.45;
+}
+
+.dot-more {
+    -fx-font-size: 10px;
+    -fx-font-weight: bold;
+    -fx-text-fill: -k-text-2;
+}
+
+.dot           { -fx-fill: -k-text-3; }
+.dot.cat-tarea  { -fx-fill: -k-tarea; }
+.dot.cat-junta  { -fx-fill: -k-junta; }
+.dot.cat-cumple { -fx-fill: -k-cumple; }
+.dot.cat-corte  { -fx-fill: -k-corte; }
+.dot.cat-pago   { -fx-fill: -k-pago; }
+.dot.done       { -fx-opacity: 0.35; }
+
+.legend {
+    -fx-spacing: 16;
+}
+
+.legend-item {
+    -fx-font-size: 12px;
+    -fx-text-fill: -k-text-2;
+}
+
+/* ========================================================== panel lateral */
+
+.side-panel {
+    -fx-background-color: -k-card;
+    -fx-background-radius: 12;
+    -fx-padding: 16;
+}
+
+.panel-title {
+    -fx-font-size: 16px;
+    -fx-font-weight: bold;
+}
+
+.panel-subtitle {
+    -fx-text-fill: -k-text-2;
+}
+
+.section-title {
+    -fx-font-size: 11px;
+    -fx-font-weight: bold;
+    -fx-text-fill: -k-text-2;
+    -fx-padding: 2 0 0 2;
+}
+
+.empty-text {
+    -fx-text-fill: -k-text-2;
+    -fx-text-alignment: center;
+    -fx-padding: 16;
+}
+
+/* Listas sin el aspecto de tabla: celdas transparentes, sin resaltado azul */
+.event-list,
+.event-list:focused {
+    -fx-background-color: transparent;
+    -fx-background-insets: 0;
+    -fx-padding: 0;
+}
+
+.event-list .list-cell,
+.event-list .list-cell:filled:selected,
+.event-list .list-cell:filled:hover {
+    -fx-background-color: transparent;
+    -fx-padding: 3 2 3 0;
+}
+
+.event-list .corner {
+    -fx-background-color: transparent;
+}
+
+/* Tarjeta de evento */
+
+.event-item {
+    -fx-background-color: -k-surface;
+    -fx-background-radius: 10;
+    -fx-padding: 10;
+}
+
+.event-item:done {
+    -fx-opacity: 0.6;
+}
+
+.event-item:done .event-title .text {
+    -fx-strikethrough: true;
+}
+
+.event-bar {
+    -fx-min-width: 4;
+    -fx-pref-width: 4;
+    -fx-max-width: 4;
+    -fx-background-radius: 2;
+    -fx-background-color: -k-text-3;
+}
+
+.event-bar.cat-tarea  { -fx-background-color: -k-tarea; }
+.event-bar.cat-junta  { -fx-background-color: -k-junta; }
+.event-bar.cat-cumple { -fx-background-color: -k-cumple; }
+.event-bar.cat-corte  { -fx-background-color: -k-corte; }
+.event-bar.cat-pago   { -fx-background-color: -k-pago; }
+
+.event-title {
+    -fx-font-weight: bold;
+}
+
+.event-meta {
+    -fx-font-size: 12px;
+    -fx-text-fill: -k-text-2;
+}
+
+/* Insignias */
+
+.badge {
+    -fx-background-radius: 999;
+    -fx-padding: 1 8 1 8;
+    -fx-font-size: 11px;
+    -fx-font-weight: bold;
+}
+
+.badge-priority {
+    -fx-background-color: -k-tarea;
+    -fx-text-fill: #FFFFFF;
+}
+
+.badge-junta  { -fx-background-color: -k-tint-junta;  -fx-text-fill: -k-junta-fg; }
+.badge-cumple { -fx-background-color: -k-tint-cumple; -fx-text-fill: -k-cumple-fg; }
+.badge-corte  { -fx-background-color: -k-tint-corte;  -fx-text-fill: -k-corte-fg; }
+.badge-pago   { -fx-background-color: -k-tint-pago;   -fx-text-fill: -k-pago-fg; }
+
+/* Botones de acción de cada evento */
+
+.mini-button {
+    -fx-background-color: transparent;
+    -fx-background-radius: 6;
+    -fx-padding: 5;
+}
+
+.mini-button:hover {
+    -fx-background-color: -k-hover;
+}
+
+.mini-button:hover .icon        { -fx-fill: -k-text; }
+.mini-button.ok:hover .icon     { -fx-fill: -k-pago-fg; }
+.mini-button.danger:hover .icon { -fx-fill: -k-tarea-fg; }
+
+/* Próximos 15 días */
+
+.upcoming-item {
+    -fx-background-radius: 8;
+    -fx-padding: 6 8 6 8;
+    -fx-cursor: hand;
+}
+
+.upcoming-item:hover {
+    -fx-background-color: -k-hover;
+}
+
+.upcoming-item:done {
+    -fx-opacity: 0.55;
+}
+
+.upcoming-date {
+    -fx-min-width: 72;
+    -fx-font-size: 12px;
+    -fx-text-fill: -k-text-2;
+}
+
+.upcoming-star {
+    -fx-text-fill: -k-tarea;
+    -fx-font-weight: bold;
+}
+
+/* ================================================================ diálogos */
+
+.dialog-pane {
+    -fx-background-color: -k-bg;
+}
+
+.dialog-pane > .header-panel {
+    -fx-background-color: -k-card;
+}
+
+.dialog-pane > .header-panel .label {
+    -fx-font-size: 14px;
+    -fx-font-weight: bold;
+}
+
+.dialog-pane > .content.label {
+    -fx-text-fill: -k-text;
+    -fx-padding: 16 16 8 16;
+}
+
+.dialog-pane > .button-bar > .container {
+    -fx-background-color: -k-bg;
+}
+
+/* ======================================================= campos de entrada */
+
+.text-field,
+.text-area {
+    -fx-background-color: -k-border, -k-surface;
+    -fx-background-insets: 0, 1;
+    -fx-background-radius: 6;
+    -fx-text-fill: -k-text;
+    -fx-prompt-text-fill: -k-text-3;
+    -fx-highlight-fill: -k-accent;
+    -fx-highlight-text-fill: #FFFFFF;
+}
+
+.text-field {
+    -fx-padding: 6 10 6 10;
+}
+
+.text-field:focused,
+.text-area:focused {
+    -fx-background-color: -k-accent, -k-surface;
+    -fx-background-insets: 0, 2;
+}
+
+.text-area .content {
+    -fx-background-color: -k-surface;
+    -fx-background-radius: 5;
+    -fx-padding: 6 8 6 8;
+}
+
+.text-area .scroll-pane,
+.text-area .viewport {
+    -fx-background-color: transparent;
+}
+
+/* Campo editable dentro de combo, fecha o spinner: el marco lo pone el contenedor */
+.combo-box .text-field,
+.combo-box .text-field:focused,
+.date-picker .text-field,
+.date-picker .text-field:focused,
+.spinner .text-field,
+.spinner .text-field:focused {
+    -fx-background-color: transparent;
+    -fx-background-insets: 0;
+}
+
+.combo-box.editable,
+.date-picker,
+.spinner {
+    -fx-background-color: -k-border, -k-surface;
+    -fx-background-insets: 0, 1;
+    -fx-background-radius: 6;
+}
+
+.combo-box.editable:focused,
+.date-picker:focused,
+.spinner:focused {
+    -fx-background-color: -k-accent, -k-surface;
+    -fx-background-insets: 0, 2;
+}
+
+.date-picker > .arrow-button {
+    -fx-background-color: transparent;
+    -fx-padding: 6 10 6 6;
+}
+
+.date-picker > .arrow-button > .arrow {
+    -fx-background-color: -k-text-2;
+}
+
+.spinner .increment-arrow-button,
+.spinner .decrement-arrow-button {
+    -fx-background-color: transparent;
+}
+
+.spinner .increment-arrow,
+.spinner .decrement-arrow {
+    -fx-background-color: -k-text-2;
+}
+
+.spinner:disabled,
+.combo-box:disabled {
+    -fx-opacity: 0.45;
+}
+
+/* Calendario emergente del DatePicker */
+.date-picker-popup {
+    -fx-background-color: -k-border, -k-bg;
+    -fx-background-insets: 0, 1;
+    -fx-background-radius: 8;
+    -fx-effect: dropshadow(gaussian, -k-shadow, 12, 0, 0, 4);
+}
+
+.date-picker-popup > .month-year-pane {
+    -fx-background-color: -k-card;
+    -fx-background-radius: 8 8 0 0;
+}
+
+.date-picker-popup .spinner {
+    -fx-background-color: transparent;
+}
+
+.date-picker-popup .spinner .label {
+    -fx-text-fill: -k-text;
+    -fx-font-weight: bold;
+}
+
+.date-picker-popup .day-name-cell,
+.date-picker-popup .week-number-cell {
+    -fx-background-color: transparent;
+    -fx-text-fill: -k-text-2;
+}
+
+.date-picker-popup .day-cell {
+    -fx-background-color: transparent;
+    -fx-text-fill: -k-text;
+    -fx-background-radius: 6;
+}
+
+.date-picker-popup .day-cell:hover {
+    -fx-background-color: -k-hover;
+}
+
+.date-picker-popup .previous-month,
+.date-picker-popup .next-month {
+    -fx-text-fill: -k-text-3;
+}
+
+.date-picker-popup .today {
+    -fx-border-color: -k-accent;
+    -fx-border-radius: 6;
+}
+
+.date-picker-popup .selected {
+    -fx-background-color: -k-accent;
+    -fx-text-fill: #FFFFFF;
+}
+
+/* Casillas y opciones */
+.check-box,
+.radio-button {
+    -fx-text-fill: -k-text;
+    -fx-cursor: hand;
+}
+
+.check-box > .box,
+.radio-button > .radio {
+    -fx-background-color: -k-text-3, -k-surface;
+    -fx-background-insets: 0, 1.5;
+}
+
+.check-box > .box {
+    -fx-background-radius: 4, 3;
+}
+
+.check-box:selected > .box,
+.radio-button:selected > .radio {
+    -fx-background-color: -k-accent, -k-accent;
+}
+
+.check-box:selected > .box > .mark,
+.radio-button:selected > .radio > .dot {
+    -fx-background-color: #FFFFFF;
+}
+
+.check-box:focused > .box,
+.radio-button:focused > .radio {
+    -fx-effect: dropshadow(gaussian, -k-accent, 3, 0.6, 0, 0);
+}
+
+.check-box:disabled,
+.radio-button:disabled {
+    -fx-opacity: 0.45;
+}
+
+/* Menús (Nuevo…) */
+.context-menu {
+    -fx-background-color: -k-border, -k-bg;
+    -fx-background-insets: 0, 1;
+    -fx-background-radius: 8;
+    -fx-padding: 4;
+    -fx-effect: dropshadow(gaussian, -k-shadow, 12, 0, 0, 4);
+}
+
+.context-menu .menu-item {
+    -fx-background-radius: 6;
+    -fx-padding: 7 14 7 10;
+}
+
+.context-menu .menu-item .label {
+    -fx-text-fill: -k-text;
+}
+
+.context-menu .menu-item:focused {
+    -fx-background-color: -k-hover;
+}
+
+.danger-button:hover {
+    -fx-background-color: -k-tint-tarea;
+    -fx-text-fill: -k-tarea-fg;
+}
+
+/* ============================================================ formularios */
+
+.form-dialog > .content {
+    -fx-padding: 22 24 6 24;
+}
+
+.form-dialog > .button-bar > .container {
+    -fx-padding: 12 24 20 24;
+}
+
+.form-title {
+    -fx-font-size: 19px;
+    -fx-font-weight: bold;
+}
+
+.form-subtitle,
+.form-hint {
+    -fx-text-fill: -k-text-2;
+}
+
+.form-hint {
+    -fx-font-size: 12px;
+}
+
+.form-label {
+    -fx-text-fill: -k-text-2;
+    -fx-font-weight: 600;
+}
+
+.form-preview {
+    -fx-background-color: -k-card;
+    -fx-background-radius: 8;
+    -fx-padding: 8 12 8 12;
+    -fx-text-fill: -k-text-2;
+    -fx-font-size: 12px;
+}
+
+.form-error {
+    -fx-background-color: -k-tint-tarea;
+    -fx-background-radius: 8;
+    -fx-padding: 8 12 8 12;
+    -fx-text-fill: -k-tarea-fg;
+    -fx-font-weight: bold;
+}
+
+/* ===================================================== tarjetas y gastos */
+
+.view-title {
+    -fx-font-size: 20px;
+    -fx-font-weight: bold;
+}
+
+.view-subtitle {
+    -fx-text-fill: -k-text-2;
+}
+
+.tarjeta-item {
+    -fx-background-color: -k-surface;
+    -fx-background-radius: 10;
+    -fx-border-color: transparent;
+    -fx-border-width: 2;
+    -fx-border-radius: 10;
+    -fx-padding: 10 12 10 12;
+    -fx-cursor: hand;
+}
+
+.tarjeta-item:hover {
+    -fx-background-color: -k-hover;
+}
+
+.tarjetas-list .list-cell:filled:selected .tarjeta-item {
+    -fx-border-color: -k-accent;
+}
+
+.tarjeta-item:inactiva {
+    -fx-opacity: 0.55;
+}
+
+.tarjeta-nombre {
+    -fx-font-size: 14px;
+    -fx-font-weight: bold;
+}
+
+.tarjeta-config {
+    -fx-font-size: 12px;
+    -fx-text-fill: -k-text-2;
+}
+
+.period-label {
+    -fx-font-size: 15px;
+    -fx-font-weight: bold;
+}
+
+.stat-tile {
+    -fx-background-color: -k-card;
+    -fx-background-radius: 12;
+    -fx-padding: 12 16 12 16;
+    -fx-spacing: 2;
+}
+
+.stat-label {
+    -fx-font-size: 11px;
+    -fx-font-weight: bold;
+    -fx-text-fill: -k-text-2;
+}
+
+.stat-value {
+    -fx-font-size: 18px;
+    -fx-font-weight: bold;
+}
+
+.stat-big {
+    -fx-font-size: 24px;
+    -fx-text-fill: -k-corte-fg;
+}
+
+.stat-corte { -fx-text-fill: -k-corte-fg; }
+.stat-pago  { -fx-text-fill: -k-pago-fg; }
+
+.gasto-item {
+    -fx-background-color: -k-surface;
+    -fx-background-radius: 10;
+    -fx-padding: 10 10 10 14;
+}
+
+.gasto-fecha {
+    -fx-min-width: 84;
+    -fx-font-size: 12px;
+    -fx-text-fill: -k-text-2;
+}
+
+.gasto-concepto {
+    -fx-font-weight: bold;
+}
+
+.gasto-monto {
+    -fx-font-size: 14px;
+    -fx-font-weight: bold;
+}
+
+.gasto-monto:negativo {
+    -fx-text-fill: -k-pago-fg;
+}
+
+/* ============================================================== directorio */
+
+.contacto-item {
+    -fx-background-color: -k-surface;
+    -fx-background-radius: 10;
+    -fx-padding: 10 12 10 12;
+}
+
+.avatar {
+    -fx-min-width: 42;
+    -fx-min-height: 42;
+    -fx-max-width: 42;
+    -fx-max-height: 42;
+    -fx-background-radius: 21;
+    -fx-background-color: -k-gris;
+}
+
+.avatar-text {
+    -fx-text-fill: #FFFFFF;
+    -fx-font-size: 15px;
+    -fx-font-weight: bold;
+}
+
+.avatar.cc-trabajo   { -fx-background-color: -k-junta; }
+.avatar.cc-casa      { -fx-background-color: -k-pago; }
+.avatar.cc-amigos    { -fx-background-color: -k-cumple; }
+.avatar.cc-generales { -fx-background-color: -k-gris; }
+
+.chip.cc-trabajo   { -fx-background-color: -k-tint-junta;  -fx-text-fill: -k-junta-fg; }
+.chip.cc-casa      { -fx-background-color: -k-tint-pago;   -fx-text-fill: -k-pago-fg; }
+.chip.cc-amigos    { -fx-background-color: -k-tint-cumple; -fx-text-fill: -k-cumple-fg; }
+.chip.cc-generales { -fx-background-color: -k-hover;       -fx-text-fill: -k-text-2; }
+
+.contacto-nombre {
+    -fx-font-size: 14px;
+    -fx-font-weight: bold;
+}
+
+.contacto-telefono {
+    -fx-font-size: 14px;
+    -fx-font-weight: 600;
+}
+
+.copy-button {
+    -fx-background-color: -k-tint-junta;
+    -fx-text-fill: -k-junta-fg;
+    -fx-font-weight: bold;
+    -fx-graphic-text-gap: 6;
+}
+
+.copy-button .icon {
+    -fx-fill: -k-junta-fg;
+}
+
+.copy-button:hover {
+    -fx-background-color: -k-junta;
+    -fx-text-fill: #FFFFFF;
+}
+
+.copy-button:hover .icon {
+    -fx-fill: #FFFFFF;
+}
+
+.copy-button.copiado,
+.copy-button.copiado:hover {
+    -fx-background-color: -k-tint-pago;
+    -fx-text-fill: -k-pago-fg;
+}
+
+.copy-button.copiado .icon {
+    -fx-fill: -k-pago-fg;
+}

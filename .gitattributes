@@ -1,0 +1,7 @@
+# Normaliza los saltos de línea de los archivos de texto
+* text=auto
+
+# Binarios: nunca convertir
+*.wav binary
+*.png binary
+*.jar binary

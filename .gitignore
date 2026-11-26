@@ -1,0 +1,28 @@
+# Compilación de Maven (incluye el Krono.jar generado)
+target/
+
+# NetBeans: configuración local de cada equipo
+nbproject/private/
+nb-configuration.xml
+
+# Otros IDE
+.idea/
+*.iml
+.vscode/
+.classpath
+.project
+.settings/
+
+# Configuración local de Krono (contiene la contraseña de la BD)
+db-config.properties
+krono.properties
+.krono/
+
+# Sistema operativo
+Thumbs.db
+desktop.ini
+.DS_Store
+
+# Registros
+*.log
+hs_err_pid*.log

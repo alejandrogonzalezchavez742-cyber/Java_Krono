@@ -1,0 +1,46 @@
+/* =====================================================================
+   Krono · Tema OSCURO
+   Solo define la paleta. Los componentes están en base.css.
+   ===================================================================== */
+
+.root {
+    /* Superficies y texto */
+    -k-bg:          #1E1F22;   /* fondo carbón */
+    -k-card:        #2B2D30;   /* tarjetas y paneles */
+    -k-surface:     #232427;   /* elementos sobre una tarjeta */
+    -k-text:        #F3F4F6;
+    -k-text-2:      #A9ADB4;
+    -k-text-3:      #5B5F66;
+    -k-border:      #3B3E43;
+    -k-hover:       #36383C;
+    -k-selected:    #173A4F;
+    -k-shadow:      rgba(0, 0, 0, 0.35);
+
+    /* Acento */
+    -k-accent:       #0284C7;
+    -k-accent-hover: #0EA5E9;
+    -k-accent-fg:    #38BDF8;
+    -k-on-accent:    #FFFFFF;
+
+    /* Texto e insignias por categoría (legibles sobre fondo oscuro) */
+    -k-tarea-fg:   #FF8A8E;
+    -k-junta-fg:   #7DD3FC;
+    -k-cumple-fg:  #B39DFF;
+    -k-corte-fg:   #FBBF24;
+    -k-pago-fg:    #4ADE80;
+    -k-tint-tarea:  rgba(255, 90, 95, 0.20);
+    -k-tint-junta:  rgba(2, 132, 199, 0.24);
+    -k-tint-cumple: rgba(124, 77, 255, 0.24);
+    -k-tint-corte:  rgba(217, 119, 6, 0.22);
+    -k-tint-pago:   rgba(0, 200, 83, 0.20);
+
+    /* Paleta de Modena (controles estándar, Alerts y ventanas emergentes) */
+    -fx-base:                     #2B2D30;
+    -fx-background:               #1E1F22;
+    -fx-control-inner-background: #2B2D30;
+}
+
+.tooltip {
+    -fx-background-color: #F3F4F6;
+    -fx-text-fill: #1A1A1A;
+}

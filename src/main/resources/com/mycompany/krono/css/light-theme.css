@@ -1,0 +1,46 @@
+/* =====================================================================
+   Krono · Tema CLARO
+   Solo define la paleta. Los componentes están en base.css.
+   ===================================================================== */
+
+.root {
+    /* Superficies y texto */
+    -k-bg:          #FFFFFF;   /* fondo de la ventana */
+    -k-card:        #F5F6F8;   /* tarjetas y paneles */
+    -k-surface:     #FFFFFF;   /* elementos sobre una tarjeta */
+    -k-text:        #1A1A1A;
+    -k-text-2:      #5F6368;   /* texto secundario */
+    -k-text-3:      #B4B8BE;   /* días fuera del mes */
+    -k-border:      #E2E4E8;
+    -k-hover:       #EBEDF0;
+    -k-selected:    #DCEFFA;   /* día seleccionado */
+    -k-shadow:      rgba(16, 24, 40, 0.08);
+
+    /* Acento */
+    -k-accent:       #0284C7;
+    -k-accent-hover: #0369A1;
+    -k-accent-fg:    #0284C7;  /* acento usado como color de texto */
+    -k-on-accent:    #FFFFFF;
+
+    /* Texto e insignias por categoría (legibles sobre fondo claro) */
+    -k-tarea-fg:   #D92D33;
+    -k-junta-fg:   #0369A1;
+    -k-cumple-fg:  #5B34E0;
+    -k-corte-fg:   #B45309;
+    -k-pago-fg:    #00873A;
+    -k-tint-tarea:  rgba(255, 90, 95, 0.14);
+    -k-tint-junta:  rgba(2, 132, 199, 0.12);
+    -k-tint-cumple: rgba(124, 77, 255, 0.12);
+    -k-tint-corte:  rgba(217, 119, 6, 0.14);
+    -k-tint-pago:   rgba(0, 200, 83, 0.14);
+
+    /* Paleta de Modena (controles estándar, Alerts y ventanas emergentes) */
+    -fx-base:                     #F5F6F8;
+    -fx-background:               #FFFFFF;
+    -fx-control-inner-background: #FFFFFF;
+}
+
+.tooltip {
+    -fx-background-color: #1A1A1A;
+    -fx-text-fill: #FFFFFF;
+}

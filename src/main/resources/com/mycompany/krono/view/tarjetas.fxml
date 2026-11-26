@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Region?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+
+<!-- Vista Tarjetas y Gastos: lista de tarjetas | detalle del periodo con sus gastos -->
+<HBox xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="com.mycompany.krono.controller.TarjetasController"
+      spacing="16.0">
+   <padding>
+      <Insets top="16.0" right="20.0" bottom="20.0" left="20.0" />
+   </padding>
+
+   <!-- ================= Lista de tarjetas ================= -->
+   <VBox styleClass="side-panel" spacing="12.0" prefWidth="330.0" minWidth="300.0" maxWidth="360.0">
+      <HBox alignment="CENTER_LEFT" spacing="8.0">
+         <VBox spacing="2.0" HBox.hgrow="ALWAYS">
+            <Label text="Mis tarjetas" styleClass="panel-title" />
+            <Label fx:id="lblConteoTarjetas" styleClass="panel-subtitle" />
+         </VBox>
+         <Button fx:id="btnNuevaTarjeta" text="Nueva" styleClass="accent-button" onAction="#onNuevaTarjeta" />
+      </HBox>
+      <ListView fx:id="lstTarjetas" styleClass="event-list, tarjetas-list" VBox.vgrow="ALWAYS" />
+   </VBox>
+
+   <!-- ================= Detalle ================= -->
+   <StackPane HBox.hgrow="ALWAYS">
+
+      <VBox fx:id="panelDetalle" spacing="14.0">
+         <!-- Encabezado de la tarjeta -->
+         <HBox styleClass="card" alignment="CENTER_LEFT" spacing="12.0">
+            <VBox spacing="3.0" HBox.hgrow="ALWAYS" minWidth="0.0">
+               <Label fx:id="lblNombre" styleClass="view-title" />
+               <Label fx:id="lblConfiguracion" styleClass="view-subtitle" />
+            </VBox>
+            <Button fx:id="btnEditarTarjeta" text="Editar" onAction="#onEditarTarjeta" />
+            <Button fx:id="btnEliminarTarjeta" text="Eliminar" styleClass="danger-button" onAction="#onEliminarTarjeta" />
+         </HBox>
+
+         <!-- Navegación de periodos -->
+         <HBox alignment="CENTER_LEFT" spacing="8.0">
+            <Button fx:id="btnPeriodoAnterior" styleClass="nav-arrow" onAction="#onPeriodoAnterior" />
+            <Button fx:id="btnPeriodoSiguiente" styleClass="nav-arrow" onAction="#onPeriodoSiguiente" />
+            <Label fx:id="lblPeriodo" styleClass="period-label" />
+            <Label fx:id="lblPeriodoActual" text="Periodo actual" styleClass="badge, badge-junta" />
+            <Region HBox.hgrow="ALWAYS" />
+            <Button fx:id="btnPeriodoHoy" text="Periodo actual" onAction="#onPeriodoHoy" />
+         </HBox>
+
+         <!-- Indicadores del periodo -->
+         <HBox spacing="12.0">
+            <VBox styleClass="stat-tile, stat-total" HBox.hgrow="ALWAYS">
+               <Label text="TOTAL ACUMULADO" styleClass="stat-label" />
+               <Label fx:id="lblTotal" styleClass="stat-value, stat-big" />
+            </VBox>
+            <VBox styleClass="stat-tile" HBox.hgrow="ALWAYS">
+               <Label text="FECHA DE CORTE" styleClass="stat-label" />
+               <Label fx:id="lblCorte" styleClass="stat-value, stat-corte" />
+            </VBox>
+            <VBox styleClass="stat-tile" HBox.hgrow="ALWAYS">
+               <Label text="LÍMITE DE PAGO" styleClass="stat-label" />
+               <Label fx:id="lblPago" styleClass="stat-value, stat-pago" />
+            </VBox>
+            <VBox styleClass="stat-tile" HBox.hgrow="ALWAYS">
+               <Label text="GASTOS" styleClass="stat-label" />
+               <Label fx:id="lblNumGastos" styleClass="stat-value" />
+            </VBox>
+         </HBox>
+
+         <!-- Gastos -->
+         <VBox styleClass="card" spacing="10.0" VBox.vgrow="ALWAYS">
+            <HBox alignment="CENTER_LEFT" spacing="8.0">
+               <Label text="Gastos del periodo" styleClass="panel-title" HBox.hgrow="ALWAYS" maxWidth="Infinity" />
+               <Button fx:id="btnNuevoGasto" text="Registrar gasto" styleClass="accent-button" onAction="#onNuevoGasto" />
+            </HBox>
+            <ListView fx:id="lstGastos" styleClass="event-list" VBox.vgrow="ALWAYS" />
+         </VBox>
+      </VBox>
+
+      <!-- Sin tarjetas -->
+      <VBox fx:id="panelVacio" styleClass="placeholder-view" visible="false">
+         <Label text="Registra tu primera tarjeta" styleClass="placeholder-title" />
+         <Label text="Indica el día de corte y los días de gracia. Krono marcará el corte y la fecha límite de pago cada mes y sumará tus gastos del periodo."
+                styleClass="placeholder-text" wrapText="true" maxWidth="460.0" />
+         <Button text="Nueva tarjeta" styleClass="accent-button" onAction="#onNuevaTarjeta" />
+      </VBox>
+   </StackPane>
+</HBox>

@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Region?>
+<?import javafx.scene.layout.VBox?>
+
+<!-- Vista Directorio: filtros por categoría, búsqueda y lista de contactos -->
+<VBox xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="com.mycompany.krono.controller.DirectorioController"
+      spacing="14.0">
+   <padding>
+      <Insets top="16.0" right="20.0" bottom="20.0" left="20.0" />
+   </padding>
+
+   <HBox alignment="CENTER_LEFT" spacing="10.0">
+      <VBox spacing="2.0">
+         <Label text="Directorio" styleClass="view-title" />
+         <Label fx:id="lblConteo" styleClass="view-subtitle" />
+      </VBox>
+      <Region HBox.hgrow="ALWAYS" />
+      <TextField fx:id="txtBuscar" promptText="Buscar por nombre, teléfono o nota" prefWidth="300.0" styleClass="search-field" />
+      <Button fx:id="btnNuevo" text="Nuevo contacto" styleClass="accent-button" onAction="#onNuevo" />
+   </HBox>
+
+   <!-- Filtros rápidos (se crean en el controlador) -->
+   <HBox fx:id="boxFiltros" styleClass="nav-segment" alignment="CENTER_LEFT" spacing="2.0" maxWidth="-Infinity" />
+
+   <VBox styleClass="card" VBox.vgrow="ALWAYS">
+      <ListView fx:id="lstContactos" styleClass="event-list" VBox.vgrow="ALWAYS" />
+   </VBox>
+</VBox>

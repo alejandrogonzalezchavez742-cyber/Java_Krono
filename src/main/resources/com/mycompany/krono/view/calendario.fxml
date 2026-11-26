@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Region?>
+<?import javafx.scene.layout.VBox?>
+
+<!-- Vista Calendario: columna principal (resumen + controles + cuadrícula) y panel lateral -->
+<HBox xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="com.mycompany.krono.controller.CalendarioController"
+      styleClass="calendar-view" spacing="16.0">
+   <padding>
+      <Insets top="16.0" right="20.0" bottom="20.0" left="20.0" />
+   </padding>
+
+   <!-- ================= Columna principal ================= -->
+   <VBox spacing="14.0" HBox.hgrow="ALWAYS" minWidth="560.0">
+
+      <!-- Encabezado de resumen: caja del día | mes, semana y resumen -->
+      <HBox styleClass="card, summary-card" alignment="CENTER_LEFT" spacing="18.0">
+         <VBox styleClass="summary-day" alignment="CENTER">
+            <Label fx:id="lblDiaSemana" styleClass="summary-weekday" />
+            <Label fx:id="lblDiaNumero" styleClass="summary-daynum" />
+         </VBox>
+         <VBox spacing="3.0" alignment="CENTER_LEFT" HBox.hgrow="ALWAYS" minWidth="0.0">
+            <Label fx:id="lblMesAnio" styleClass="summary-month" />
+            <Label fx:id="lblSemana" styleClass="summary-week" />
+            <Label fx:id="lblResumen" styleClass="summary-text" wrapText="true" />
+         </VBox>
+      </HBox>
+
+      <!-- Barra de controles -->
+      <HBox styleClass="cal-controls" alignment="CENTER_LEFT" spacing="8.0">
+         <Button fx:id="btnAnterior" styleClass="nav-arrow" onAction="#onAnterior" />
+         <Button fx:id="btnSiguiente" styleClass="nav-arrow" onAction="#onSiguiente" />
+         <ComboBox fx:id="cmbMes" prefWidth="140.0" />
+         <ComboBox fx:id="cmbAnio" prefWidth="96.0" />
+         <ComboBox fx:id="cmbFiltro" prefWidth="190.0" />
+         <Region HBox.hgrow="ALWAYS" />
+         <Button fx:id="btnHoy" text="Hoy" styleClass="accent-button" onAction="#onHoy" />
+      </HBox>
+
+      <!-- Cuadrícula (las celdas se crean en el controlador) -->
+      <VBox styleClass="card, calendar-card" spacing="10.0" VBox.vgrow="ALWAYS">
+         <GridPane fx:id="gridCalendario" styleClass="calendar-grid" VBox.vgrow="ALWAYS" />
+         <HBox fx:id="boxLeyenda" styleClass="legend" alignment="CENTER" />
+      </VBox>
+   </VBox>
+
+   <!-- ================= Panel lateral ================= -->
+   <VBox styleClass="side-panel" spacing="10.0" prefWidth="360.0" minWidth="320.0" maxWidth="380.0">
+      <HBox alignment="CENTER_LEFT" spacing="8.0">
+         <VBox spacing="2.0" HBox.hgrow="ALWAYS">
+            <Label text="Detalle del día" styleClass="panel-title" />
+            <Label fx:id="lblPanelFecha" styleClass="panel-subtitle" />
+         </VBox>
+         <Button fx:id="btnNuevo" text="Nuevo" styleClass="accent-button" onAction="#onNuevo" />
+      </HBox>
+
+      <ListView fx:id="lstDia" styleClass="event-list" VBox.vgrow="ALWAYS" />
+
+      <Separator />
+      <Label text="PRÓXIMOS 15 DÍAS" styleClass="section-title" />
+      <ListView fx:id="lstProximos" styleClass="event-list, upcoming-list" prefHeight="220.0" minHeight="120.0" />
+   </VBox>
+</HBox>

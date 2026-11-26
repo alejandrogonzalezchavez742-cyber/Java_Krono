@@ -1,0 +1,79 @@
+/* Diálogo "Enlazar base de datos".
+   Usa la paleta del tema activo (-k-*), que ThemeManager carga antes que este archivo. */
+
+.db-dialog {
+    -fx-background-color: -k-bg;
+}
+
+.db-title {
+    -fx-font-size: 20px;
+    -fx-font-weight: bold;
+}
+
+.db-dialog .db-subtitle,
+.db-dialog .db-hint {
+    -fx-text-fill: -k-text-2;
+}
+
+.db-dialog .db-hint {
+    -fx-font-size: 11px;
+}
+
+.db-card {
+    -fx-background-color: -k-card;
+    -fx-background-radius: 10;
+}
+
+.db-dialog .text-field,
+.db-dialog .password-field {
+    -fx-background-color: -k-border, -k-surface;
+    -fx-background-insets: 0, 1;
+    -fx-background-radius: 6;
+    -fx-text-fill: -k-text;
+    -fx-prompt-text-fill: -k-text-3;
+    -fx-padding: 6 10 6 10;
+}
+
+.db-dialog .text-field:focused,
+.db-dialog .password-field:focused {
+    -fx-background-color: -k-accent, -k-surface;
+    -fx-background-insets: 0, 2;
+}
+
+.db-dialog .text-field.invalido,
+.db-dialog .password-field.invalido {
+    -fx-background-color: -k-tarea, -k-surface;
+    -fx-background-insets: 0, 2;
+}
+
+.db-banner {
+    -fx-padding: 10 12 10 12;
+    -fx-background-radius: 8;
+}
+
+.db-dialog .db-banner-error {
+    -fx-background-color: -k-tint-tarea;
+    -fx-text-fill: -k-tarea-fg;
+}
+
+.db-dialog .estado-ok    { -fx-text-fill: -k-pago-fg; }
+.db-dialog .estado-aviso { -fx-text-fill: -k-corte-fg; }
+.db-dialog .estado-error { -fx-text-fill: -k-tarea-fg; }
+
+.db-dialog .check-box {
+    -fx-text-fill: -k-text;
+}
+
+.db-dialog .db-primary {
+    -fx-background-color: -k-accent;
+    -fx-text-fill: -k-on-accent;
+    -fx-font-weight: bold;
+}
+
+.db-dialog .db-primary:hover {
+    -fx-background-color: -k-accent-hover;
+}
+
+.db-dialog .db-primary:disabled {
+    -fx-opacity: 0.6;
+}
