@@ -12,16 +12,20 @@ Aplicación de escritorio personal que reúne en un solo lugar un **calendario i
 - **Juntas con alarma**: nombre, contexto (**Trabajo**, **Casa** o **Amigos**), fecha y hora. La notificación muestra la etiqueta, por ejemplo `[Trabajo] Junta de equipo`.
 - **Cumpleaños** que se repiten cada año y muestran la edad que cumple cada persona. Si no sabes el año de nacimiento, se guarda sin edad.
 - **Cortes y fechas límite de pago** de cada tarjeta, marcados cada mes con el total acumulado del periodo.
-- Cuadrícula estilo Windows 11: un punto de color por evento (`+N` si hay más de 4), el día de hoy resaltado y un panel con el detalle del día y los **próximos 15 días**.
+- Cuadrícula estilo Windows 11 con el día de hoy resaltado. Cada evento muestra una **marca: un punto de color y, junto a él, un ícono pequeño de su categoría**. En cada día se muestran las marcas que caben en el ancho de la celda (hasta 4) y el resto como `+N`, sin que se encimen aunque la ventana sea pequeña.
+- La misma marca aparece en el panel del **detalle del día**, en los **próximos 15 días** y en la leyenda bajo la cuadrícula.
 - Filtro por categoría (prioritarias, juntas, tareas, cumpleaños, cortes y pagos) y navegación con el teclado: flechas, RePág/AvPág e Inicio.
 
-| Categoría | Color |
-|---|---|
-| Asuntos importantes / prioritarios | Rojo coral `#FF5A5F` |
-| Juntas / reuniones | Azul cielo `#0284C7` |
-| Cumpleaños | Morado índigo `#7C4DFF` |
-| Cortes de tarjeta | Ámbar `#D97706` |
-| Fecha límite de pago | Verde esmeralda `#00C853` |
+| Categoría | Ícono | Color en modo claro | Color en modo oscuro |
+|---|---|---|---|
+| Asunto prioritario | ⭐ estrella | Rojo coral `#FF5A5F` | Coral brillante `#FF7B80` |
+| Asunto importante | 📌 pin | Rojo coral `#FF5A5F` | Coral brillante `#FF7B80` |
+| Juntas / reuniones | 👥 grupo | Azul cielo `#0284C7` | Azul cielo luminoso `#38BDF8` |
+| Cumpleaños | 🎂 pastel | Morado índigo `#7C4DFF` | Lila claro `#B388FF` |
+| Cortes de tarjeta | 💳 tarjeta | Ámbar `#D97706` | Amarillo dorado `#FBBF24` |
+| Fecha límite de pago | 💵 billete | Verde esmeralda `#00C853` | Verde menta `#34D399` |
+
+> En la aplicación los íconos son vectoriales y toman el color de su categoría. Los emojis de la tabla solo los representan: JavaFX dibuja los emojis en negro y con tamaños desiguales.
 
 ### Tarjetas y gastos
 - Cada tarjeta guarda su **día de corte** y su fecha límite de pago, ya sea por **días de gracia** después del corte o por un **día fijo** del mes.
@@ -46,6 +50,8 @@ Aplicación de escritorio personal que reúne en un solo lugar un **calendario i
 
 ### Modo claro y oscuro
 Se cambia con un clic desde la barra superior, y Krono recuerda tu elección.
+
+En modo oscuro, los colores de categoría son más brillantes para que los puntos, los íconos y las barras resalten sobre el fondo carbón: todos superan un contraste de 5:1. Los textos secundarios también son más claros. Donde hay texto sobre un color de categoría (la insignia ★ PRIORITARIA, las iniciales de los contactos y el botón Copiar), ese texto pasa a carbón, porque el blanco no se leería sobre tonos tan claros. El modo claro conserva los colores originales.
 
 ![Calendario en modo oscuro](docs/capturas/calendario-oscuro.png)
 
