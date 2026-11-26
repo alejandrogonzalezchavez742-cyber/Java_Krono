@@ -11,6 +11,7 @@ import com.mycompany.krono.model.TipoEvento;
 import com.mycompany.krono.util.Cambios;
 import com.mycompany.krono.service.CalendarioService;
 import com.mycompany.krono.ui.DiaCelda;
+import com.mycompany.krono.ui.MarcaCategoria;
 import com.mycompany.krono.ui.OcurrenciaCell;
 import com.mycompany.krono.ui.ProximoCell;
 import com.mycompany.krono.util.Dialogos;
@@ -37,8 +38,8 @@ import javafx.scene.control.ListView;
 import javafx.scene.control.Tooltip;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.ColumnConstraints;
+import javafx.scene.layout.FlowPane;
 import javafx.scene.layout.GridPane;
-import javafx.scene.layout.HBox;
 import javafx.scene.layout.Priority;
 import javafx.scene.layout.RowConstraints;
 import javafx.scene.shape.Circle;
@@ -69,7 +70,7 @@ public class CalendarioController {
     @FXML private ComboBox<Integer> cmbAnio;
     @FXML private ComboBox<FiltroCalendario> cmbFiltro;
     @FXML private GridPane gridCalendario;
-    @FXML private HBox boxLeyenda;
+    @FXML private FlowPane boxLeyenda;
     @FXML private Label lblPanelFecha;
     @FXML private ListView<Ocurrencia> lstDia;
     @FXML private ListView<Ocurrencia> lstProximos;
@@ -201,15 +202,20 @@ public class CalendarioController {
         lstProximos.setFocusTraversable(false);
     }
 
+    /** Leyenda: punto + ícono de cada categoría. Los asuntos se separan en importantes (pin) y prioritarios (estrella). */
     private void construirLeyenda() {
+        agregarLeyenda(CategoriaCalendario.TAREA, true, "Prioritarias");
         for (CategoriaCalendario cat : CategoriaCalendario.values()) {
-            Circle punto = new Circle(4);
-            punto.getStyleClass().addAll("dot", cat.claseCss());
-            Label l = new Label(cat.nombre(), punto);
-            l.getStyleClass().add("legend-item");
-            l.setGraphicTextGap(6);
-            boxLeyenda.getChildren().add(l);
+            agregarLeyenda(cat, false, cat.nombre());
         }
+    }
+
+    private void agregarLeyenda(CategoriaCalendario cat, boolean prioritaria, String texto) {
+        Label l = new Label(texto, MarcaCategoria.crear(cat, prioritaria, 4, 12));
+        l.getStyleClass().add("legend-item");
+        l.setGraphicTextGap(6);
+        l.setMinWidth(Label.USE_PREF_SIZE);   // nunca "Priori…": mejor pasar a la siguiente línea
+        boxLeyenda.getChildren().add(l);
     }
 
     // ============================================================== navegación

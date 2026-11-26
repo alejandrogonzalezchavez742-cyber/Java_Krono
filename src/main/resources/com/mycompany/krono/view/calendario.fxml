@@ -6,6 +6,7 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ListView?>
 <?import javafx.scene.control.Separator?>
+<?import javafx.scene.layout.FlowPane?>
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.Region?>
@@ -20,7 +21,8 @@
    </padding>
 
    <!-- ================= Columna principal ================= -->
-   <VBox spacing="14.0" HBox.hgrow="ALWAYS" minWidth="560.0">
+   <!-- minWidth: con la ventana en su ancho mínimo, la barra de controles cabe completa -->
+   <VBox spacing="14.0" HBox.hgrow="ALWAYS" minWidth="600.0">
 
       <!-- Encabezado de resumen: caja del día | mes, semana y resumen -->
       <HBox styleClass="card, summary-card" alignment="CENTER_LEFT" spacing="18.0">
@@ -43,13 +45,14 @@
          <ComboBox fx:id="cmbAnio" prefWidth="96.0" />
          <ComboBox fx:id="cmbFiltro" prefWidth="190.0" />
          <Region HBox.hgrow="ALWAYS" />
-         <Button fx:id="btnHoy" text="Hoy" styleClass="accent-button" onAction="#onHoy" />
+         <Button fx:id="btnHoy" text="Hoy" styleClass="accent-button" onAction="#onHoy" minWidth="-Infinity" />
       </HBox>
 
       <!-- Cuadrícula (las celdas se crean en el controlador) -->
       <VBox styleClass="card, calendar-card" spacing="10.0" VBox.vgrow="ALWAYS">
          <GridPane fx:id="gridCalendario" styleClass="calendar-grid" VBox.vgrow="ALWAYS" />
-         <HBox fx:id="boxLeyenda" styleClass="legend" alignment="CENTER" />
+         <!-- FlowPane: si no cabe en una línea, la leyenda pasa a la siguiente en vez de cortarse -->
+         <FlowPane fx:id="boxLeyenda" styleClass="legend" alignment="CENTER" hgap="16.0" vgap="6.0" />
       </VBox>
    </VBox>
 

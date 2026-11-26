@@ -8,6 +8,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.function.Consumer;
 import javafx.css.PseudoClass;
+import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
@@ -16,6 +17,7 @@ import javafx.scene.control.Tooltip;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Priority;
 import javafx.scene.layout.Region;
+import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
 
 /**
@@ -29,6 +31,7 @@ public class OcurrenciaCell extends ListCell<Ocurrencia> {
     private final Region barra = new Region();
     private final HBox insignias = new HBox(4);
     private final Label titulo = new Label();
+    private final StackPane marcaCaja = new StackPane();
     private final Label meta = new Label();
     private final Button btnCompletar = boton("ok");
     private final Button btnEditar = boton(null);
@@ -44,7 +47,16 @@ public class OcurrenciaCell extends ListCell<Ocurrencia> {
         meta.setWrapText(true);
         insignias.setAlignment(Pos.CENTER_LEFT);
 
-        VBox texto = new VBox(4, insignias, titulo, meta);
+        // Marca (punto + ícono) a la izquierda del título; se alinea con la primera línea
+        marcaCaja.setPadding(new Insets(4, 0, 0, 0));
+        marcaCaja.setMinWidth(Region.USE_PREF_SIZE);
+        HBox lineaTitulo = new HBox(7, marcaCaja, titulo);
+        lineaTitulo.setAlignment(Pos.TOP_LEFT);
+        titulo.setMinWidth(0);
+        titulo.setMaxWidth(Double.MAX_VALUE);
+        HBox.setHgrow(titulo, Priority.ALWAYS);
+
+        VBox texto = new VBox(4, insignias, lineaTitulo, meta);
         texto.setMinWidth(0);
         HBox.setHgrow(texto, Priority.ALWAYS);
 
@@ -77,6 +89,7 @@ public class OcurrenciaCell extends ListCell<Ocurrencia> {
         }
 
         barra.getStyleClass().setAll("event-bar", o.categoria().claseCss());
+        marcaCaja.getChildren().setAll(MarcaCategoria.de(o, 4, 14));
         titulo.setText(o.titulo());
         raiz.pseudoClassStateChanged(COMPLETADA, o.completada());
 

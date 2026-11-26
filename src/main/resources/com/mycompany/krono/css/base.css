@@ -376,9 +376,20 @@
     -fx-font-weight: normal;
 }
 
-.day-cell:out-month .dot {
+/* Marca de categoría: punto + ícono, siempre del mismo color */
+.day-cell:out-month .dot-pair {
     -fx-opacity: 0.45;
 }
+
+.dot-pair.done {
+    -fx-opacity: 0.35;
+}
+
+.cat-icon.cat-tarea  { -fx-fill: -k-tarea; }
+.cat-icon.cat-junta  { -fx-fill: -k-junta; }
+.cat-icon.cat-cumple { -fx-fill: -k-cumple; }
+.cat-icon.cat-corte  { -fx-fill: -k-corte; }
+.cat-icon.cat-pago   { -fx-fill: -k-pago; }
 
 .dot-more {
     -fx-font-size: 10px;
@@ -393,10 +404,6 @@
 .dot.cat-corte  { -fx-fill: -k-corte; }
 .dot.cat-pago   { -fx-fill: -k-pago; }
 .dot.done       { -fx-opacity: 0.35; }
-
-.legend {
-    -fx-spacing: 16;
-}
 
 .legend-item {
     -fx-font-size: 12px;
