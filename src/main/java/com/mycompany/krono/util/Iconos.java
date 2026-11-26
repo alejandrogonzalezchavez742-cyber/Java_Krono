@@ -46,14 +46,40 @@ public final class Iconos {
     public static final String COPIAR = "M16 1H4c-1.1 0-2 .9-2 2v14h2V3h12V1zm3 4H8c-1.1 0-2 .9-2 2v14c0 1.1.9 2 "
             + "2 2h11c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2zm0 16H8V7h11v14z";
 
+    // ---- Categorías del calendario (acompañan al punto de color)
+    /** 🎂 Cumpleaños. */
+    public static final String PASTEL = "M12 6c1.11 0 2-.9 2-2 0-.38-.1-.73-.29-1.03L12 0l-1.71 2.97c-.19.3-.29.65"
+            + "-.29 1.03 0 1.1.9 2 2 2zm4.6 9.99l-1.07-1.07-1.08 1.07c-1.3 1.3-3.58 1.31-4.89 0l-1.07-1.07-1.09 1.07"
+            + "C6.75 16.64 5.88 17 4.96 17c-.73 0-1.4-.23-1.96-.61V21c0 .55.45 1 1 1h16c.55 0 1-.45 1-1v-4.61c-.56.38"
+            + "-1.23.61-1.96.61-.92 0-1.79-.36-2.44-1.01zM18 9h-5V7h-2v2H6c-1.66 0-3 1.34-3 3v1.54c0 1.08.88 1.96 "
+            + "1.96 1.96.52 0 1.02-.2 1.38-.57l2.14-2.13 2.13 2.13c.74.74 2.03.74 2.77 0l2.14-2.13 2.13 2.13c.37.37"
+            + ".86.57 1.38.57 1.08 0 1.96-.88 1.96-1.96V12C21 10.34 19.66 9 18 9z";
+    /** ⭐ Asunto prioritario. */
+    public static final String ESTRELLA = "M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24"
+            + "l5.46 4.73L5.82 21z";
+    /** 📌 Asunto importante. */
+    public static final String PIN = "M16 9V4h1c.55 0 1-.45 1-1s-.45-1-1-1H7c-.55 0-1 .45-1 1s.45 1 1 1h1v5c0 1.66"
+            + "-1.34 3-3 3v2h5.97v7l1 1 1-1v-7H19v-2c-1.66 0-3-1.34-3-3z";
+    /** 👥 Junta / reunión. */
+    public static final String GRUPO = CONTACTOS;
+    /** 💵 Fecha límite de pago. */
+    public static final String BILLETE = "M19 14V6c0-1.1-.9-2-2-2H3c-1.1 0-2 .9-2 2v8c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2z"
+            + "m-9-1c-1.66 0-3-1.34-3-3s1.34-3 3-3 3 1.34 3 3-1.34 3-3 3zm13-6v11c0 1.1-.9 2-2 2H4v-2h17V7h2z";
+    // 💳 Corte de tarjeta: TARJETA
+
     private Iconos() {
     }
 
-    /** Icono de {@code tamano} px, centrado en una caja cuadrada. */
-    public static StackPane crear(String trazo, double tamano) {
+    /**
+     * Icono de {@code tamano} px, centrado en una caja cuadrada.
+     *
+     * @param clases clases CSS extra para el trazo (p. ej. "cat-icon", "cat-junta" para colorearlo)
+     */
+    public static StackPane crear(String trazo, double tamano, String... clases) {
         SVGPath path = new SVGPath();
         path.setContent(trazo);
         path.getStyleClass().add("icon");
+        path.getStyleClass().addAll(clases);
         double escala = tamano / 24.0;
         path.setScaleX(escala);
         path.setScaleY(escala);
