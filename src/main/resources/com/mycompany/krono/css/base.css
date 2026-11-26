@@ -12,6 +12,7 @@
     -k-corte:  #D97706;   /* Cortes de tarjeta */
     -k-pago:   #00C853;   /* Fecha límite de pago */
     -k-gris:   #6B7280;   /* Contactos generales */
+    -k-on-cat: #FFFFFF;   /* Texto sobre un color de categoría (el tema oscuro lo cambia a carbón) */
 
     -fx-font-family: "Segoe UI";
     -fx-font-size: 13px;
@@ -509,7 +510,7 @@
 
 .badge-priority {
     -fx-background-color: -k-tarea;
-    -fx-text-fill: #FFFFFF;
+    -fx-text-fill: -k-on-cat;
 }
 
 .badge-junta  { -fx-background-color: -k-tint-junta;  -fx-text-fill: -k-junta-fg; }
@@ -957,6 +958,13 @@
 .avatar.cc-amigos    { -fx-background-color: -k-cumple; }
 .avatar.cc-generales { -fx-background-color: -k-gris; }
 
+/* Iniciales sobre un color de categoría; el gris de "Generales" conserva el blanco */
+.avatar.cc-trabajo .avatar-text,
+.avatar.cc-casa .avatar-text,
+.avatar.cc-amigos .avatar-text {
+    -fx-text-fill: -k-on-cat;
+}
+
 .chip.cc-trabajo   { -fx-background-color: -k-tint-junta;  -fx-text-fill: -k-junta-fg; }
 .chip.cc-casa      { -fx-background-color: -k-tint-pago;   -fx-text-fill: -k-pago-fg; }
 .chip.cc-amigos    { -fx-background-color: -k-tint-cumple; -fx-text-fill: -k-cumple-fg; }
@@ -985,11 +993,11 @@
 
 .copy-button:hover {
     -fx-background-color: -k-junta;
-    -fx-text-fill: #FFFFFF;
+    -fx-text-fill: -k-on-cat;
 }
 
 .copy-button:hover .icon {
-    -fx-fill: #FFFFFF;
+    -fx-fill: -k-on-cat;
 }
 
 .copy-button.copiado,

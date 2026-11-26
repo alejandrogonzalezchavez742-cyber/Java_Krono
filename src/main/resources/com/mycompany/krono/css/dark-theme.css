@@ -8,9 +8,9 @@
     -k-bg:          #1E1F22;   /* fondo carbón */
     -k-card:        #2B2D30;   /* tarjetas y paneles */
     -k-surface:     #232427;   /* elementos sobre una tarjeta */
-    -k-text:        #F3F4F6;
-    -k-text-2:      #A9ADB4;
-    -k-text-3:      #5B5F66;
+    -k-text:        #F3F4F6;   /* 13.0:1 sobre las tarjetas */
+    -k-text-2:      #C4C8CE;   /*  8.2:1 · textos secundarios */
+    -k-text-3:      #7A7F87;   /*  3.4:1 · días de otro mes: tenue pero legible */
     -k-border:      #3B3E43;
     -k-hover:       #36383C;
     -k-selected:    #173A4F;
@@ -22,17 +22,30 @@
     -k-accent-fg:    #38BDF8;
     -k-on-accent:    #FFFFFF;
 
-    /* Texto e insignias por categoría (legibles sobre fondo oscuro) */
-    -k-tarea-fg:   #FF8A8E;
+    /* Colores de categoría BRILLANTES para fondo oscuro: puntos, íconos y barras.
+       (Contraste sobre la tarjeta #2B2D30; antes el morado quedaba en 2.9:1.)
+       En modo claro se usan los originales, definidos en base.css. */
+    -k-tarea:  #FF7B80;   /* Coral brillante        5.5:1 */
+    -k-junta:  #38BDF8;   /* Azul cielo luminoso    6.4:1 */
+    -k-cumple: #B388FF;   /* Lila / violeta claro   5.2:1 */
+    -k-corte:  #FBBF24;   /* Ámbar / amarillo dorado 8.3:1 */
+    -k-pago:   #34D399;   /* Verde menta brillante  7.2:1 */
+
+    /* Texto SOBRE un color de categoría (insignia prioritaria, avatares, botón Copiar).
+       Con tonos tan claros el blanco no se lee (≤ 2.7:1): se usa carbón (≥ 6.2:1). */
+    -k-on-cat: #1E1F22;
+
+    /* Texto de insignias sobre su fondo tintado */
+    -k-tarea-fg:   #FF9DA1;
     -k-junta-fg:   #7DD3FC;
-    -k-cumple-fg:  #B39DFF;
-    -k-corte-fg:   #FBBF24;
-    -k-pago-fg:    #4ADE80;
-    -k-tint-tarea:  rgba(255, 90, 95, 0.20);
-    -k-tint-junta:  rgba(2, 132, 199, 0.24);
-    -k-tint-cumple: rgba(124, 77, 255, 0.24);
-    -k-tint-corte:  rgba(217, 119, 6, 0.22);
-    -k-tint-pago:   rgba(0, 200, 83, 0.20);
+    -k-cumple-fg:  #CBB0FF;
+    -k-corte-fg:   #FCD34D;
+    -k-pago-fg:    #6EE7B7;
+    -k-tint-tarea:  rgba(255, 123, 128, 0.18);
+    -k-tint-junta:  rgba(56, 189, 248, 0.18);
+    -k-tint-cumple: rgba(179, 136, 255, 0.18);
+    -k-tint-corte:  rgba(251, 191, 36, 0.16);
+    -k-tint-pago:   rgba(52, 211, 153, 0.16);
 
     /* Paleta de Modena (controles estándar, Alerts y ventanas emergentes) */
     -fx-base:                     #2B2D30;
